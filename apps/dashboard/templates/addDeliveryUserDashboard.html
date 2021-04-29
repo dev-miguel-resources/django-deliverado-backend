@@ -1,0 +1,55 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Crear un Usuario
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid" id="dashboard-container">
+	<div class="row">
+		<div class="col-8 mr-auto ml-auto p-0" id="editar-box">
+			<div class="col-12 centered-title">
+				<h4>Vincular Repartidor</h4>
+			</div>
+			
+			{% if result == "error" %}
+			<div class="alert alert-danger">
+				<h2 class="text-center">{{msg}}</h2>
+			</div>
+			{% elif result == 'success' %}
+			<div class="alert alert-success">
+				<h2 class="text-center">{{msg}}</h2>
+			</div>
+			{% endif %}
+			
+			{% if result != 'success' %}
+			<form method="POST" enctype="multipart/form-data">{% csrf_token %}
+				<div class="row grey-box">		
+					<div class="col-12 grey-box-form usuario-add-box">
+				 
+					  	<div class="form-row">
+					  		<div class="col">
+						    	<label>Correo</label>
+						      	<input id="delivery_user" name="delivery_user" type="email" class="form-control" required placeholder="Ingresa el email del conductor a vincular">
+					    	</div>
+					    	 
+					  	</div>
+					  
+					  	 
+					</div>	
+					<div class="col-12 grey-box-button-box usuario-add-btn-box">
+				  		<button class="btn btn-dark">Vincular</button>
+				  	</div>
+				</div>	
+			</form>
+			{% elif result == 'success' %}
+			<div class="col-12 grey-box-button-box usuario-add-btn-box">
+				<a href="{% url 'listUsersDashboard' %}"><button class="btn btn-dark">Continuar</button></a>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+	{% endblock bodycontent %}

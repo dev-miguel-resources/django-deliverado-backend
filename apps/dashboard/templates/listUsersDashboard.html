@@ -1,0 +1,94 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Crear un Usuario
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid" id="dashboard-container">
+	<div class="row mb-5">
+		<div class="col-8 p-0">
+			<h3 class="white-text pb-2 mb-0">Usuarios</h3>
+		</div>
+		<div class="col-4 p-0">
+			<a href="{% url 'addDeliveryUserDashboard' %}">	<button class="btn btn-newpromo"><i class="fas fa-user-plus"></i> Agregar repartidor </button></a>
+			<a href="{% url 'createOperatorUsersDashboard' %}"><button class="btn btn-newpromo" style="margin-right: 10px;"><i class="fas fa-user-plus"></i> Agregar operador </button></a>
+		</div>
+	</div>
+	
+	{% if result %}
+		<h1>{{result}}</h1>
+	{% endif %}
+		
+	<div class="row inner-box-table">
+		<div class="col-12 p-0">
+			<table class="table table-hover pedido-table usuarios-table">
+			  <thead>
+			    <tr>
+			      
+			      <th scope="col">Nombre</th>
+			      <th scope="col">Perfil</th>
+			      <th scope="col">Correo</th>
+			      <th scope="col">Acciones</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+				
+				{% for user  in  list_user %}
+	
+					
+				<tr>
+			      
+			      <td>{{user.first_name|title}}</td>
+			      <td>
+					  
+					  {% if user.type_user == 3  %}
+					  Operador
+					  {% elif user.type_user == 1 %}	 
+					  Repartidor 
+					  {% endif %}
+						  
+				  </td>
+			      <td>{{user.email}}</td>
+			      
+			      <td>
+			      	
+					  {% if user.type_user == 3 %}
+					  <a href="{% url 'updateOperatorUsersDashboard' user.pk %}" class="list-details"><i class="fas fa-pen"></i></a> 
+					  {% endif %}
+					  <a href="{% url 'updateOperatorUsersDashboard' user.pk %}" class="list-details"><i class="fas fa-trash"></i></a> 	  
+			      </td>
+				</tr>
+				
+								  
+				{% endfor %}
+			    
+			  </tbody>
+			</table>
+		</div>
+	</div>
+	<!-- <div class="row">
+		<div class="col-12 p-0">
+			<nav aria-label="Page navigation example ">
+			  <ul class="pagination justify-content-end pagination-table">
+			    <li class="page-item">
+			      <a class="page-link" href="#" aria-label="Previous">
+			        <span aria-hidden="true"><i class="fas fa-angle-left"></i></span>
+			      </a>
+			    </li>
+			    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+			    <li class="page-item"><a class="page-link" href="#">2</a></li>
+			    <li class="page-item"><a class="page-link" href="#">3</a></li>
+			    <li class="page-item">
+			      <a class="page-link" href="#" aria-label="Next">
+			        <span aria-hidden="true"><i class="fas fa-angle-right"></i></span>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>
+		</div>
+	</div> -->
+</div>
+
+	{% endblock bodycontent %}

@@ -1,0 +1,30 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Crear un Usuario
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid" id="dashboard-container">
+	<div class="row">
+		<div class="col-6  mx-auto contraseña-box">
+			<h5>Restaurar contraseña</h5>
+			<p class="w-75 mx-auto pl-5 pr-5 mb-5">A continuación, ingrese su contraseña</p>
+			<form>
+			  <div class="form-row">
+			    <div class="col">
+				    <input type="password" class="form-control mb-5" placeholder="Contraseña">
+				    <input type="password" class="form-control" placeholder="Repetir Contraseña">
+			    </div>
+			  </div>
+			  	<div class="col-12 mt-5">
+			  		<button class="btn btn-light d-block w-100">Aceptar</button>
+			  	</div>
+			  </div>
+			</form>
+		</div>
+	</div>
+</div>
+
+	{% endblock bodycontent %}

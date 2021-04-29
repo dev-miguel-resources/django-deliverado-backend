@@ -1,0 +1,85 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Crear un Usuario
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid" id="dashboard-container">
+	<div class="row" id="inner-box">
+		<div class="col-12" id="pedidos-box">
+			<h3>Pedido Id: 589749</h3>
+			<p>1 artículo</p>
+		</div>
+		<div class="col-8 p-0">
+			<div class="pedidos-list">
+				<ul class="list-unstyled">
+					<h5>Platos destacados </h5>
+				  <li class="media details-media-obj">
+				  	<span class="number badge number-badge">1</span>
+				    <img src="/static/dist/img/default-150x150.png" class="mr-3" alt="...">
+				    <div class="media-body">
+				      <h5 class="mt-0 mb-1">Cancato de robalo</h5>
+				      <p>Queso mantecoso, camarones</p>
+				      <span class="price">$13.000</span>
+				    </div>
+				  </li>
+				</ul>
+				<ul class="list-unstyled">
+					<h5>Postres </h5>
+				  <li class="media details-media-obj">
+				  	<span class="number badge number-badge">1</span>
+				    <img src="/static/dist/img/default-150x150.png" class="mr-3" alt="...">
+				    <div class="media-body">
+				      <h5 class="mt-0 mb-1">Cancato de robalo</h5>
+				      <p>Queso mantecoso, camarones</p>
+				      <span class="price">$13.000</span>
+				    </div>
+				  </li>
+				</ul>
+			</div>	
+		<div class="total-box">
+			<h3 class="left-text">Total</h3>
+			<h3 class="right-text">$21.000</h3>
+		</div>
+		</div>
+		<div class="col-4" id="pedido-right-panel">
+			<h5>Fecha y hora de entrega</h5>		  	
+		    <div class="card-body cliente-card mb-3">
+			  <ul class="list-group list-group-flush stats-list">
+			    <li class="list-group-item ">
+			    	<p><i class="far fa-calendar"></i> Fecha: 23 de Junio 2020 </p>
+			    	<p><i class="far fa-clock"></i> Hora: 8:30 am</p>
+			    </li>
+			  </ul>
+			</div>
+			<h5>Cliente</h5>		  	
+		    <div class="card-body cliente-card">
+			  <ul class="list-group list-group-flush stats-list">
+			    <li class="list-group-item ">
+			    	<h5 class="card-title">Susana Vargas <span class="badge text-badge"><i class="fas fa-user"></i></span></h5>
+			    	<p><i class="fas fa-map-marker-alt"></i> 8080 Southwest Street</p>
+			    	<p><i class="fas fa-phone"></i> Tel: +5694445677</p>
+			    	<p><i class="fas fa-envelope"></i> Correo: susana@gmail.com</p>
+			    </li>
+			  </ul>
+			</div>
+			<div class="input-group mb-3 right-panel-drop">
+				<h5>Repartidor</h5>
+			    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Seleccionar repartidor</button>
+			    <div class="dropdown-menu">
+			      <a class="dropdown-item" href="#">Repartidor personal</a>
+			      <a class="dropdown-item" href="#">Repartidor al azar</a>
+			    </div>
+			</div>
+			<div class="right-panel-btns">
+				<button type="button" class="btn btn-dark">Aceptar pedido</button>
+				<button type="button" class="btn btn-outline-dark">Rechazar pedido</button>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+	{% endblock bodycontent %}

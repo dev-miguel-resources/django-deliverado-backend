@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Webpay Normal - Return Success</title>
+</head>
+<body onload="setTimeout(function() { document.frm1.submit() }, 10)">
+	loading...
+ 
+	<form method="POST" action="{{transaction.urlRedirection}}" name="frm1">
+		<input type='hidden' name='token_ws' value="{{token}}">
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Ver un plato
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid" id="dashboard-container">
+	<div class="row">
+		<div class="col-10 mr-auto ml-auto p-0" id="editar-box">
+			<div class="col-12 centered-title">
+				<h4>Ver un plato</h4>
+			</div>
+			
+				<div class="row grey-box">		
+					<div class="col-4 editar-img" >
+						<img src="{{product.img.url}}">
+						
+
+					</div>
+					<div class="col-8 grey-box-form">
+					  	<div class="form-row">
+						    <div class="col">
+								<label >Nombre del plato</label>
+								<p>{{product.name}}</p>
+							    <!-- <input type="text" class="form-control" placeholder="Plato numero uno"> -->
+						    </div>
+						    <div class="col">
+						    	<label>Familia de Carta</label>
+								<p>{{product.category_group}}</p>
+								<!-- <select id="id_category_group" class="form-control" name="category_group">
+
+								   {% for category  in category_list  %}
+								   <option value="category.id">{{category.name}}</option>
+								   {% endfor %}
+									    
+							       
+							    </select> -->
+					    	</div>
+					  	</div>
+					  	<div class="form-row">
+						    <div class="col mt-3">
+							    <label >Descripción del plato</label>
+								<p>{{product.description}}</p>
+								<!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea> -->
+						    </div>
+					  	</div>
+					</div>
+					<div class="row w-100 mr-auto ml-auto grey-box-precio-wrapper">
+						<div class="col-6 grey-box-precio mr-auto ml-auto">
+							<div class="form-group row">
+							    <label for="inputEmail3" class="col-sm-7 col-form-label">Precio</label>
+							    <div class="col-sm-5">
+									$ {{product.price}}
+
+								    </div>
+								  </div>
+								  <div class="form-group row">
+								    <label for="inputPassword3" class="col-sm-7 col-form-label">Disponibilidad</label>
+								    <div class="col-sm-5">
+								    
+									{% if product.status == 1 %}
+										Disponible
+									{% else %}
+										No Disponible	
+									{% endif %}
+										
+								    </select>
+								</div>
+							</div>
+						</div>
+					</div>	
+					<div class="col-12 grey-box-button-box" align="right">
+				  		<a href="{% url 'menu' %}"><button class="btn btn-dark">Volver</button></a>
+				  	</div>
+				</div>	
+			
+		</div>
+	</div>
+</div>
+
+	{% endblock bodycontent %}

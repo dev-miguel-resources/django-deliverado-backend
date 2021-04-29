@@ -1,0 +1,91 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Crear un Usuario
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid" id="dashboard-container">
+	<div class="row">
+		<div class="col-8 mr-auto ml-auto p-0" id="editar-box">
+			<div class="col-12 centered-title">
+				<h4>Agregar usuario</h4>
+			</div>
+			
+			{% if error %}
+			<div class="alert alert-danger">
+				{{error}}
+			</div>
+			{% endif %}
+			<form method="POST" enctype="multipart/form-data">{% csrf_token %}
+				<div class="row grey-box">		
+					<div class="col-12 grey-box-form usuario-add-box">
+					  	<div class="form-row">
+					  		<h5>Datos personales</h5>
+						    <div class="col">
+							    <label >Nombre </label>
+							    {{form.first_name}}
+						    </div>
+						    <div class="col">
+							    <label >Apellido </label>
+							    {{form.last_name}}
+						    </div>
+					  	</div>
+					  	<div class="form-row">
+					  		<div class="col">
+						    	<label>Correo</label>
+						      	{{form.email}}
+					    	</div>
+					    	 
+					  	</div>
+					  	<div class="form-row">
+					  		<h5>Sistema</h5>
+							  <div class="col">
+							    <label >Constraseña </label>
+							    {{form.password}}
+						    </div>
+						    <div class="col">
+							    <label >Repita la constraseña </label>
+							    <input name="password2" id="password2" type="password" class="form-control" placeholder="Contraseña" required>
+						    </div>
+					  	</div>
+					  	<div class="form-row">
+					  		<h5>Permisos</h5>
+						    <div class="col">
+							    <div class="custom-control custom-switch">
+									<label class="custom-control-label" for="customSwitch1">Manejar pedidos</label>
+								    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+								</div>
+						    </div>
+						    <div class="col">
+							    <div class="custom-control custom-switch">
+									<label class="custom-control-label" for="customSwitch2">Agregar promociones</label>
+								    <input type="checkbox" class="custom-control-input" id="customSwitch2">
+								</div>
+						    </div>
+						    <div class="col">
+							    <div class="custom-control custom-switch">
+									<label class="custom-control-label" for="customSwitch3">Editar menú</label>
+								    <input type="checkbox" class="custom-control-input" id="customSwitch3">
+								</div>
+						    </div>
+						    <div class="col">
+							    <div class="custom-control custom-switch">
+									<label class="custom-control-label" for="customSwitch4">Editar perfil negocio</label>
+								    <input type="checkbox" class="custom-control-input" id="customSwitch4">
+								</div>
+						    </div>
+					  	</div>
+					</div>	
+					<div class="col-12 grey-box-button-box usuario-add-btn-box">
+				  		<button class="btn btn-outline-dark">Cancelar</button>
+				  		<button class="btn btn-dark">Guardar</button>
+				  	</div>
+				</div>	
+			</form>
+		</div>
+	</div>
+</div>
+
+	{% endblock bodycontent %}

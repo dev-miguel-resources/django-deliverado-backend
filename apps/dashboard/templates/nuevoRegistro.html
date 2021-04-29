@@ -1,0 +1,85 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Crear un Usuario
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-6 login-left-box">
+			<img class="login-bg-img" src="/static/dist/img/photo1.png"></img>
+			<div class="login-bg-img-overlay"></div>
+			<h1 class="white-text cursive-text">La mejor manera de llevar la experiencia a tus clientes</h1>
+		</div>
+		<div class="col-6 profile-info-box ml-0 login-right-box">
+			<h1 class="cursive-text">Registro</h1>
+			<p>Por favor, ingrese sus datos</p>
+			<form>
+				<div class="form-row">
+				    <div class="col">
+					    <input type="text" class="form-control" placeholder="Correo electrónico">
+				    </div>
+				</div>
+				<div class="form-row">
+				    <div class="col">
+					    <input type="password" class="form-control" placeholder="Contraseña">
+				    </div>
+				</div>
+				<div class="form-row">
+				    <div class="col">
+					    <input type="text" class="form-control" placeholder="Nombre de fantasia de la empresa">
+				    </div>
+				</div>
+				<div class="form-row">
+				    <div class="col">
+					    <input type="text" class="form-control" placeholder="Telefono">
+				    </div>
+				    <div class="col">
+				      	<select id="inputState" class="form-control">
+					        <option selected>Categoría de negocio</option>
+					        <option>Opción 2</option>
+					        <option>Opción 3</option>
+					        <option>Opción 4</option>
+					    </select>
+				    </div>
+				</div>
+			  	<div class="col-12">
+			  		<button class="btn btn-dark d-block w-100" type="button" data-toggle="modal" data-target="#eliminarPromoModal">Registrarse</button>
+			  		<!-- Modal eliminar promoción-->
+					<div class="modal fade" id="eliminarPromoModal" tabindex="-1" aria-labelledby="eliminarPromoModal" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-body">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					        <p class="text-bold text-center">¡Gracias por registrarte!</p>
+					        <p class="text-center mt-3 w-75 mr-auto ml-auto">Tu solicitud estará en revisión. Nos comunicaremos contigo lo más pronto posible</p>
+					      </div>
+					      <div >
+					        <button type="button" class="btn btn-dark w-50 mr-auto ml-auto d-block">Aceptar</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					<!-- Modal eliminar promoción-->
+			  	</div>
+			  	<div class="divider">
+			  		<span></span>
+			  		<p>o</p>
+			  		<span></span>
+			  	</div>
+			  	<ul class="social-login">
+			  		<li class="facebook"><a href=""><i class="fab fa-facebook-f"></i></a></li>
+			  		<li class="whatsapp"><a href=""><i class="fab fa-whatsapp"></i></a></li>
+			  		<li class="googleplus"><a href=""><i class="fab fa-google-plus-g"></i></a></li>
+			  	</ul>
+			  	<p class="text-center mt-5">¿Ya tienes cuenta? <a class="text-center text-bold">Iniciar sesión</a> </p>
+			</form>
+		</div>
+	</div>
+</div>
+
+	{% endblock bodycontent %}

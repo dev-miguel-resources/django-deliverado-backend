@@ -1,0 +1,146 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Home Restaurantes - Deliverado
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid" id="dashboard-container">
+	<div class="row">
+		<div class="col-12 p-0">
+			<div class="card-deck">
+				<div class="card pedido-count">
+				  <div class="row no-gutters">
+				    <div class="col-md-4 text-center">
+				      <img src="/static/dist/img/testicon1.png" class="card-img" alt="...">
+				    </div>
+				    <div class="col-md-8">
+				      <div class="card-body">
+				        <h5 class="card-title">Pedidos entregados</h5>
+				        <p class="card-text bold-text">{{list_order_complete}}</p>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				<div class="card pedido-count">
+				  <div class="row no-gutters">
+				    <div class="col-md-4">
+				      <img src="/static/dist/img/testicon2.png" class="card-img" alt="...">
+				    </div>
+				    <div class="col-md-8">
+				      <div class="card-body">
+				        <h5 class="card-title">Pedidos cancelados</h5>
+				        <p class="card-text bold-text">{{list_order_cancel}}</p>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>		
+	</div>
+	<div class="row">
+		<div class="col-12 p-0">
+			<div class="card-deck">
+
+			  	<div class="card pedido-stats">
+				  	<h5 class="card-title">Pedidos pendientes</h5>
+				    <div class="card-body">
+					  <ul class="list-group list-group-flush stats-list">
+						
+						{% for order in list_order_new  %}	  
+						<a href="{% url 'viewOrderPendingDashboard' order.pk %}"><li class="list-group-item">
+								<h4>ID: {{order.pk}} <span class="badge text-badge">Nueva</span></h4>
+								<p><i class="fas fa-map-marker-alt"></i> {{order.address_delivery}}</p>
+							</li>
+						</a>
+						{% endfor %}
+					  </ul>
+					</div>
+			    </div>
+
+				<div class="card pedido-stats">
+					<h5 class="card-title">Pedidos en proceso</h5>
+				  <div class="card-body">
+					<ul class="list-group list-group-flush stats-list">
+					  
+					  {% for order in list_order_proccessing  %}	  
+					  <a href="{% url 'viewOrderProcessingDashboard' order.pk %}"><li class="list-group-item">
+							  <h4>ID: {{order.pk}}
+								  
+								  {% if order.status == '2' %}
+								  <span class="badge text-badge">Esperando Repartidor</span>
+								{% elif order.status == '4' %}  
+								<span class="badge text-badge">Esperando Preparando</span>
+								{% elif order.status == '6' %}  
+								<span class="badge text-badge">Preparando</span>
+								  {% endif %}
+							    </h4>
+							  <p><i class="fas fa-map-marker-alt"></i> {{order.address_delivery}}</p>
+						  </li>
+					  </a>
+					  {% endfor %}
+					</ul>
+				  </div>
+			  </div>
+
+			  	<!-- <div class="card pedido-stats">
+				  	<h5 class="card-title">Pedidos en proceso</h5>
+				    <div class="card-body">
+					  <ul class="list-group list-group-flush stats-list">
+					    <li class="list-group-item ">
+					    	<h4>ID: 589749 <span class="badge text-badge">Cancelada</span></h4>
+					    	<p><i class="fas fa-map-marker-alt"></i> 8080 Southwest Street <a href="" class="download-badge"><span class="badge"><i class="fas fa-file-download"></i></span></a></p>
+					    </li>
+					    <li class="list-group-item ">
+					    	<h4>ID: 589749 <span class="badge clock-badge"><i class="fas fa-history"></i></span></h4>
+					    	<p><i class="fas fa-map-marker-alt"></i> 8080 Southwest Street</p>
+					    	<span class="badge black-badge">Pedido listo</span>
+					    </li>
+					  </ul>
+					</div>
+			    </div> -->
+
+			  	<div class="card pedido-stats">
+				  	<h5 class="card-title">Pedidos enviados</h5>
+				    <div class="card-body">
+
+						<ul class="list-group list-group-flush stats-list">
+					  
+							{% for order in list_order_in_delivery  %}	  
+							<a href="{% url 'viewOrderProcessingDashboard' order.pk %}"><li class="list-group-item">
+									<h4>ID: {{order.pk}}
+										
+										{% if order.status == '2' %}
+										<span class="badge text-badge">Esperando Repartidor</span>
+									  {% elif order.status == '4' %}  
+									  <span class="badge text-badge">Esperando Preparando</span>
+									  {% elif order.status == '6' %}  
+									  <span class="badge text-badge">Preparando</span>
+										{% endif %}
+									  </h4>
+									<p><i class="fas fa-map-marker-alt"></i> {{order.address_delivery}}</p>
+								</li>
+							</a>
+							{% endfor %}
+						  </ul>
+					  <!-- <ul class="list-group list-group-flush stats-list">
+					    <li class="list-group-item ">
+					    	<h4>ID: 589749 <span class="badge"><i class="fas fa-motorcycle"></i></span></h4>
+					    	<p><i class="fas fa-map-marker-alt"></i> 8080 Southwest Street</p>
+					    </li>
+					    <li class="list-group-item ">
+					    	<h4>ID: 589749 <span class="badge"><i class="fas fa-store"></i></h4>
+					    	<p><i class="fas fa-map-marker-alt"></i> 8080 Southwest Street </i></span></p>
+					    	<span class="badge black-badge">Pedido entregado</span>
+					    </li>
+					  </ul> -->
+					</div>
+			    </div>
+			  </div>		  
+			</div>
+		</div>
+	</div>
+</div>
+
+	{% endblock bodycontent %}

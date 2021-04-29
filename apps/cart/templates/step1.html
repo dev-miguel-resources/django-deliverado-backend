@@ -1,0 +1,31 @@
+{% load humanize %} 
+<!-- VISTA CHECKOUT 'confirmación de compra' -->
+<div class="container" id="checkout-container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="checkout-purple-title"><i class="fas fa-shopping-cart"></i> ¡Estás comprando 1 plan!</h1>
+      </div>
+      <div class="col-sm-2 col-md-2 col-lg-2 col-6">
+        <img src="{{suscription.shop.shop_img_1.url}}" alt="" class="store-thumbnail">
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-6 col-6">
+         <p class="membership-type-check">{{suscription.name}}</p>
+        <p class="store-name-check">{{suscription.shop.name}}</p>
+        <p class="store-name-check"> Válido desde: {{suscription_initial_date}} </p>
+        <p class="store-name-check"> Hasta el: {{suscription_end_date}}</p>
+  
+      </div>
+      <div class="col-12 total-price-box">
+        <p class="text-right uppercase">Total</p>
+        <h3 class="total-price text-right">${{suscription.price|intcomma}}</h3>
+      </div>
+      <form method="POST" action="{{transaction.url}}">
+      <input type="hidden" name="token_ws" value="{{transaction.token}}">
+      <div class="col-12">
+        <button  type="submit" class="purple-btn purple-btn-large ml-auto">Ir a pagar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+  <!-- END VISTA CHECKOUT -->
+  

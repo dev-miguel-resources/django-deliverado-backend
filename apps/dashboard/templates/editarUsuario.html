@@ -1,0 +1,98 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Crear un Usuario
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid" id="dashboard-container">
+	<div class="row">
+		<div class="col-8 mr-auto ml-auto p-0" id="editar-box">
+			<div class="col-12 centered-title">
+				<h4>Editar usuario</h4>
+			</div>
+			<form>
+				<div class="row grey-box">		
+					<div class="col-12 grey-box-form usuario-add-box">
+					  	<div class="form-row">
+					  		<h5>Datos personales</h5>
+						    <div class="col">
+							    <label >Nombre </label>
+							    <input type="text" class="form-control" placeholder="Nombre">
+						    </div>
+						    <div class="col">
+							    <label >Correo </label>
+							    <input type="mail" class="form-control" placeholder="Correo">
+						    </div>
+					  	</div>
+					  	<div class="form-row">
+					  		<div class="col">
+						    	<label>Departamento</label>
+						      	<select id="inputState" class="form-control">
+							        <option selected>Seleccione</option>
+							        <option>Opción 2</option>
+							        <option>Opción 3</option>
+							        <option>Opción 4</option>
+							    </select>
+					    	</div>
+					    	<div class="col">
+						    	<label>Tipo de perfil</label>
+						      	<select id="inputState" class="form-control">
+							        <option selected>Seleccione</option>
+							        <option>Opción 2</option>
+							        <option>Opción 3</option>
+							        <option>Opción 4</option>
+							    </select>
+					    	</div>
+					  	</div>
+					  	<div class="form-row">
+					  		<h5>Sistema</h5>
+						    <div class="col">
+							    <label >Login </label>
+							    <input type="text" class="form-control" placeholder="Nombre de usuario">
+						    </div>
+						    <div class="col">
+							    <label >Constraseña </label>
+							    <input type="password" class="form-control" placeholder="Contraseña">
+						    </div>
+					  	</div>
+					  	<div class="form-row">
+					  		<h5>Permisos</h5>
+						    <div class="col">
+							    <div class="custom-control custom-switch">
+									<label class="custom-control-label" for="customSwitch1">Manejar pedidos</label>
+								    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+								</div>
+						    </div>
+						    <div class="col">
+							    <div class="custom-control custom-switch">
+									<label class="custom-control-label" for="customSwitch2">Agregar promociones</label>
+								    <input type="checkbox" class="custom-control-input" id="customSwitch2">
+								</div>
+						    </div>
+						    <div class="col">
+							    <div class="custom-control custom-switch">
+									<label class="custom-control-label" for="customSwitch3">Editar menú</label>
+								    <input type="checkbox" class="custom-control-input" id="customSwitch3">
+								</div>
+						    </div>
+						    <div class="col">
+							    <div class="custom-control custom-switch">
+									<label class="custom-control-label" for="customSwitch4">Editar perfil negocio</label>
+								    <input type="checkbox" class="custom-control-input" id="customSwitch4">
+								</div>
+						    </div>
+					  	</div>
+					</div>	
+					<div class="col-12 grey-box-button-box usuario-add-btn-box">
+				  		<button class="btn btn-outline-dark">Cancelar</button>
+				  		<button class="btn btn-dark">Guardar</button>
+				  	</div>
+				</div>	
+			</form>
+		</div>
+	</div>
+</div>
+
+	{% endblock bodycontent %}

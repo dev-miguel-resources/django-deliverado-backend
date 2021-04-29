@@ -1,0 +1,276 @@
+{% extends "baseDashboard.html" %}
+{% load staticfiles %} 
+{% block titlepage %}
+    Perfil
+{% endblock titlepage %}
+{% block breadcrumpage %}
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'indexDashboard' %}">Dashboard</a></li>    
+{% endblock breadcrumpage %}
+{% block bodycontent %}
+  
+          
+           
+
+
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+             
+          </div><!-- /.col -->
+          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+     <!-- Main content -->
+     <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+  
+              <!-- Profile Image -->
+              <div class="card card-primary card-outline">
+                <div class="card-body box-profile">
+                  <div class="text-center">
+                    <img class="profile-user-img img-fluid img-circle"
+                         src="{{shop.img_list.url}}"
+                         alt="User profile picture">
+                  </div>
+  
+                  <h3 class="profile-username text-center">{{shop.name|title}}</h3>
+  
+
+  
+                  <ul class="list-group list-group-unbordered mb-3">
+                    <li class="list-group-item">
+                      <b>Dirección</b> <a class="float-right">{{shop.address|title}}</a>
+                    </li>
+                    <li class="list-group-item">
+                      <b>Categoría Restaurant</b> <a class="float-right">{{shop.type_business|title}}</a>
+                    </li>
+                  </ul>
+  
+                  <a href="#" class="btn btn-primary btn-block"><b>Editar</b></a>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+  
+             
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+              <div class="card">
+                <div class="card-header p-2">
+                  <ul class="nav nav-pills">
+                    <li class="nav-item"><a class="nav-link active" href="#products" data-toggle="tab">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#categories" data-toggle="tab">Categorias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experiences" data-toggle="tab">Experiencias</a></li>
+                  </ul>
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                  <div class="tab-content">
+                    <div class="active tab-pane" id="products">
+                        <div class="card-body">
+                            <div class="row">
+                               
+                              <div class="col-12 col-sm-12" >
+                                <button class="btn btn-success btn-block" data-toggle="modal" data-target="#createproduct"><b>Agregar producto</b></button>
+                                <br>
+                                
+                                <div class="tab-content" id="vert-tabs-tabContent">
+                                     
+                                        <div class="tab-pane text-left fade show active" id="vert-tabs-product" role="tabpanel" aria-labelledby="vert-tabs-home-tab">             
+
+                                  
+                                            
+                                   <!-- List of Products-->
+                                   {% for product in list_product_shop %}
+                                    
+                                    <div class="card col-6">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-2"><img src="{{product.img.url}}" alt="" width="80" height="80"></div> 
+                                                <div class="col-9"><h4>{{product.name}}</h4></div> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                   {% endfor %}
+                                   
+                                    <!-- END List of Products-->
+                                    </div>
+                              
+                                 
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="categories">
+                        <div class="card-body">
+                            <div class="row">
+                              <div class="col-5 col-sm-3">
+                                <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
+                                  
+                                  {% for category in list_categories  %}  
+                                        
+                                        {% if forloop.first %}
+                                        <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-{{category.name}}" role="tab" aria-controls="vert-tabs-home" aria-selected="true">{{category.name}}</a>
+                                        {% else %}
+                                        <a class="nav-link" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-{{category.name}}" role="tab" aria-controls="vert-tabs-home" aria-selected="true">{{category.name}}</a>
+                                        {% endif %}
+                                  {% endfor %}
+                                  
+                                </div>
+                              </div>
+                              <div class="col-7 col-sm-9">
+                                <a href="#" class="btn btn-success btn-block"><b>Agregar producto a una categoría</b></a>
+                                <br>
+                                
+                                <div class="tab-content" id="vert-tabs-tabContent">
+                                    {% for category in list_categories  %}  
+                                    
+                                    {% if forloop.first %}
+                                        <div class="tab-pane text-left fade show active" id="vert-tabs-{{category.name}}" role="tabpanel" aria-labelledby="vert-tabs-home-tab">             
+
+                                    {% else %}
+
+                                        <div class="tab-pane text-left fade" id="vert-tabs-{{category.name}}" role="tabpanel" aria-labelledby="vert-tabs-home-tab">             
+                                        
+                                    {% endif %}
+                                            
+                                   <!-- List of Products-->
+                                   {% for product in list_category_product %}
+                                    {% if product.category == category %}
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-2"><img src="{{product.product.img.url}}" alt="" width="80" height="80"></div> 
+                                                <div class="col-9"><h4>{{product.product.name}}</h4></div> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+
+                                   {% endfor %}
+                                   
+                                    <!-- END List of Products-->
+                                    </div>
+                                  {% endfor %}
+                                 
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="experiences">
+                        <div class="card-body">
+                            <div class="row">
+                              <div class="col-5 col-sm-3">
+                                <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
+                                  
+                                  {% for experiences in list_experiences  %}  
+                                        
+                                        {% if forloop.first %}
+                                        <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-{{experiences.name}}" role="tab" aria-controls="vert-tabs-home" aria-selected="true">{{experiences.name}}</a>
+                                        {% else %}
+                                        <a class="nav-link" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-{{experiences.name}}" role="tab" aria-controls="vert-tabs-home" aria-selected="true">{{experiences.name}}</a>
+                                        {% endif %}
+                                  {% endfor %}
+                                  
+                                </div>
+                              </div>
+                              <div class="col-7 col-sm-9">
+                                <a href="#" class="btn btn-success btn-block"><b>Agregar producto a una experiencia</b></a>
+                                <br>
+                                <div class="tab-content" id="vert-tabs-tabContent">
+                                    {% for experiences in list_experiences  %}  
+                                    
+                                    {% if forloop.first %}
+                                        <div class="tab-pane text-left fade show active" id="vert-tabs-{{experiences.name}}" role="tabpanel" aria-labelledby="vert-tabs-home-tab">             
+
+                                    {% else %}
+
+                                        <div class="tab-pane text-left fade" id="vert-tabs-{{experiences.name}}" role="tabpanel" aria-labelledby="vert-tabs-home-tab">             
+                                        
+                                    {% endif %}
+                                            
+                                   <!-- List of Products-->
+                                   
+                                   {% for product in list_experiences_product %}
+                                    
+                                    {% if product.experience == experiences %}
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-2"><img src="{{product.product.img.url}}" alt="" width="80" height="80"></div> 
+                                                <div class="col-9"><h4>{{product.product.name}}</h4></div> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+
+                                    {% endfor %}
+                                    
+                                    <!-- END List of Products-->
+                                    </div>
+                                  {% endfor %}
+                                 
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                     
+    
+                   
+                    <!-- /.tab-pane -->
+                  </div>
+                  <!-- /.tab-content -->
+                </div><!-- /.card-body -->
+              </div>
+              <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+  
+ 
+  <div class="modal fade" id="createproduct">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+         
+          <h4 class="modal-title">ORDEN ID: <span id="id_code">11</span> </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <iframe src="{% url 'createProductDashboard' %}" frameborder="0" width="100%" style="min-height:500px"; ></iframe>
+        </div>
+         
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  {% endblock bodycontent %}
+

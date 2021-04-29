@@ -1,0 +1,217 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Crear un Usuario
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid" id="dashboard-container">
+	<div class="row">
+		<div class="col-8 p-0">
+			<h3 class="white-text pb-2 mb-0">Promociones</h3>
+		</div>
+		<div class="col-4 p-0">
+			<button class="btn btn-newpromo">Agregar nueva promoción <i class="fas fa-plus-circle"></i></button>
+		</div>
+		<nav class="promo-tabs">
+		  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+		    <a class="nav-link active" id="nav-promo-act" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Activas</a>
+		    <a class="nav-link" id="nav-promo-fin" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Finalizadas</a>
+		  </div>
+		</nav>
+		<div class="tab-content col-12 p-0" id="nav-tabContent">
+		  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+		  	<div class="row">
+		  		<!-- card with the promo info-->
+		  		<div class="col-4 promo-card">
+					<div class="card">
+					  <div class="card-header">
+					    <h5>Ravioles de pato + gaseosa</h5> 
+					    <div class="dropdown btn-agregar2">
+						  <button class="btn  dropdown-toggle" type="button" id="dropdownPromo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    <i class="fas fa-ellipsis-v"></i>
+						  </button>
+						  <div class="dropdown-menu" aria-labelledby="dropdownPromo">
+						    <a class="dropdown-item" href="#">Editar promoción</a>
+						    <button type="button" class="btn-eliminar-promo" data-toggle="modal" data-target="#eliminarPromoModal">
+  								Eliminar promoción
+							</button>
+						  </div>
+						</div>
+						<div class="custom-control custom-switch">
+							<label class="custom-control-label" for="customSwitch1">Activa</label>
+						    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+						</div>
+					  </div>
+					  <div class="card-body">
+					  	<ul class="list-group promo-card-list">
+						    <li>
+						    	<p class="promo-date">Válido hasta</p>
+						    	<p >01/06/2020 - 30/06/2020</p>
+						    </li>
+						    <li>
+						    	<p class="promo-type">Tipo de promoción</p>
+						    	<p>Porcentaje - 10%</p>
+						    </li>
+						</ul>
+					  </div>		  
+					</div>
+					<!-- Modal eliminar promoción-->
+					<div class="modal fade" id="eliminarPromoModal" tabindex="-1" aria-labelledby="eliminarPromoModal" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-body">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					        <i class="fas fa-exclamation"></i>
+					        <p class="text-center mt-3 w-75 mr-auto ml-auto">¿Estás seguro de que quieres eliminar esta promoción?</p>
+					      </div>
+					      <div >
+					        <button type="button" class="btn btn-dark">Sí, eliminar</button>
+					        <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancelar</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					<!-- Modal eliminar promoción-->
+				</div>
+				<div class="col-4 promo-card">
+					<div class="card">
+					  <div class="card-header">
+					    <h5>Ravioles de pato + gaseosa</h5> 
+					    <div class="dropdown btn-agregar2">
+						  <button class="btn  dropdown-toggle" type="button" id="dropdownPromo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    <i class="fas fa-ellipsis-v"></i>
+						  </button>
+						  <div class="dropdown-menu" aria-labelledby="dropdownPromo">
+						    <a class="dropdown-item" href="#">Editar promoción</a>
+						    <a class="dropdown-item" href="#">Eliminar promoción</a>
+						  </div>
+						</div>
+						<div class="custom-control custom-switch">
+							<label class="custom-control-label" for="customSwitch1">Activa</label>
+						    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+						</div>
+					  </div>
+					  <div class="card-body">
+					  	<ul class="list-group promo-card-list">
+						    <li>
+						    	<p class="promo-date">Válido hasta</p>
+						    	<p >01/06/2020 - 30/06/2020</p>
+						    </li>
+						    <li>
+						    	<p class="promo-type">Tipo de promoción</p>
+						    	<p>Porcentaje - 10%</p>
+						    </li>
+						</ul>
+					  </div>		  
+					</div>
+				</div>
+				<div class="col-4 promo-card">
+					<div class="card">
+					  <div class="card-header">
+					    <h5>Ravioles de pato + gaseosa</h5> 
+					    <div class="dropdown btn-agregar2">
+						  <button class="btn  dropdown-toggle" type="button" id="dropdownPromo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    <i class="fas fa-ellipsis-v"></i>
+						  </button>
+						  <div class="dropdown-menu" aria-labelledby="dropdownPromo">
+						    <a class="dropdown-item" href="#">Editar promoción</a>
+						    <a class="dropdown-item" href="#">Eliminar promoción</a>
+						  </div>
+						</div>
+						<div class="custom-control custom-switch">
+							<label class="custom-control-label" for="customSwitch1">Activa</label>
+						    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+						</div>
+					  </div>
+					  <div class="card-body">
+					  	<ul class="list-group promo-card-list">
+						    <li>
+						    	<p class="promo-date">Válido hasta</p>
+						    	<p >01/06/2020 - 30/06/2020</p>
+						    </li>
+						    <li>
+						    	<p class="promo-type">Tipo de promoción</p>
+						    	<p>Porcentaje - 10%</p>
+						    </li>
+						</ul>
+					  </div>		  
+					</div>
+				</div>
+				<div class="col-4 promo-card">
+					<div class="card">
+					  <div class="card-header">
+					    <h5>Ravioles de pato + gaseosa</h5> 
+					    <div class="dropdown btn-agregar2">
+						  <button class="btn  dropdown-toggle" type="button" id="dropdownPromo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    <i class="fas fa-ellipsis-v"></i>
+						  </button>
+						  <div class="dropdown-menu" aria-labelledby="dropdownPromo">
+						    <a class="dropdown-item" href="#">Editar promoción</a>
+						    <a class="dropdown-item" href="#">Eliminar promoción</a>
+						  </div>
+						</div>
+						<div class="custom-control custom-switch">
+							<label class="custom-control-label" for="customSwitch1">Activa</label>
+						    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+						</div>
+					  </div>
+					  <div class="card-body">
+					  	<ul class="list-group promo-card-list">
+						    <li>
+						    	<p class="promo-date">Válido hasta</p>
+						    	<p >01/06/2020 - 30/06/2020</p>
+						    </li>
+						    <li>
+						    	<p class="promo-type">Tipo de promoción</p>
+						    	<p>Porcentaje - 10%</p>
+						    </li>
+						</ul>
+					  </div>		  
+					</div>
+				</div>
+				<div class="col-4 promo-card">
+					<div class="card">
+					  <div class="card-header">
+					    <h5>Ravioles de pato + gaseosa</h5> 
+					    <div class="dropdown btn-agregar2">
+						  <button class="btn  dropdown-toggle" type="button" id="dropdownPromo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    <i class="fas fa-ellipsis-v"></i>
+						  </button>
+						  <div class="dropdown-menu" aria-labelledby="dropdownPromo">
+						    <a class="dropdown-item" href="#">Editar promoción</a>
+						    <a class="dropdown-item" href="#">Eliminar promoción</a>
+						  </div>
+						</div>
+						<div class="custom-control custom-switch">
+							<label class="custom-control-label" for="customSwitch1">Activa</label>
+						    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+						</div>
+					  </div>
+					  <div class="card-body">
+					  	<ul class="list-group promo-card-list">
+						    <li>
+						    	<p class="promo-date">Válido hasta</p>
+						    	<p >01/06/2020 - 30/06/2020</p>
+						    </li>
+						    <li>
+						    	<p class="promo-type">Tipo de promoción</p>
+						    	<p>Porcentaje - 10%</p>
+						    </li>
+						</ul>
+					  </div>		  
+					</div>
+				</div>
+
+				<!-- card with the promo info-->
+		  	</div>  	
+		  </div>
+		  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+		</div>
+	</div>
+</div>
+
+	{% endblock bodycontent %}

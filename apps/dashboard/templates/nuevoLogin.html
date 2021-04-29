@@ -1,0 +1,50 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Crear un Usuario
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-6 login-left-box">
+			<img class="login-bg-img" src="/static/dist/img/photo1.png"></img>
+			<div class="login-bg-img-overlay"></div>
+			<h1 class="white-text cursive-text">La mejor manera de llevar la experiencia a tus clientes</h1>
+		</div>
+		<div class="col-6 profile-info-box ml-0 login-right-box">
+			<h1 class="cursive-text">Bienvenido</h1>
+			<p>Inicia sesión para continuar</p>
+			<form method="POST">{% csrf_token %}
+				<div class="form-row">
+				    <div class="col">
+						{{login_form.username}}
+					    
+				    </div>
+				</div>
+				<div class="form-row">
+				    <div class="col">
+						{{login_form.password}}
+					    
+				    </div>
+				</div>
+			  	<div class="col-12">
+			  	  	<p class="password-link">¿Olvidaste tu contraseña? <a class="text-center">Recuperar</a> </p>
+					  <button class="btn btn-dark d-block w-100" name="login_form">Iniciar sesión</button>
+					  {% if dataErrorLogin %}
+						<div class="alert alert-danger alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<h4><i class="icon fa fa-ban"></i> Ups!</h4>
+						{{dataErrorLogin}}
+						</div>
+					{% endif %}
+			  	</div>
+			  	
+			  	<p class="text-center mt-5">¿No tienes cuenta? <a class="text-center text-bold">Regístrate</a> </p>
+			</form>
+		</div>
+	</div>
+</div>
+
+	{% endblock bodycontent %}

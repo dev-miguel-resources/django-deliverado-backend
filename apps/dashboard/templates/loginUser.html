@@ -1,0 +1,59 @@
+{% extends "baseUser.html" %}
+{% load static %}
+{% block bodycontent %}
+	 {% if dataErrorLogin %}
+     <div class="alert alert-danger alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><i class="icon fa fa-ban"></i> Ups!</h4>
+      {{dataErrorLogin}}
+    </div>
+   {% endif %}
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Ingresa tus credenciales para acceder</p>
+
+      <form method="POST">{% csrf_token %}
+        <div class="input-group mb-3">
+          {{login_form.username}}
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          {{login_form.password}}
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        
+       
+        
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="remember">
+              <label for="remember">
+                Recordar
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block" name="login_form">Ingresar</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+      <p class="mb-1">
+        <a href="forgot-password.html">Recuperar contraseña</a>
+      </p>
+      <p class="mb-0">
+        <a href="{% url 'registerDashboard' %}" class="text-center">Crear una nueva cuenta</a>
+      </p>
+    </div>
+    <!-- /.login-card-body -->
+{% endblock bodycontent %}

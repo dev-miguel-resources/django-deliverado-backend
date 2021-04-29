@@ -1,0 +1,80 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Crear un Usuario
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid" id="dashboard-container">
+	<div class="row">
+		<div class="col-10 mr-auto ml-auto p-0" id="editar-box">
+			<div class="col-12 centered-title">
+				<h4>Agregar plato</h4>
+			</div>
+			<form method="POST" enctype="multipart/form-data">{% csrf_token %}
+				<div class="row grey-box">		
+					<div class="col-4 editar-img" >
+						<img src="/static/dist/img/food.jpg">
+						<a href="" class="text-center">Cambiar foto</a>
+						{{form.img}}
+					</div>
+					<div class="col-8 grey-box-form">
+					  	<div class="form-row">
+						    <div class="col">
+								<label >Nombre del plato</label>
+								{{form.name}}
+							    <!-- <input type="text" class="form-control" placeholder="Plato numero uno"> -->
+						    </div>
+						    <div class="col">
+						    	<label>Familia de Carta</label>
+								{{form.category_group}}  
+								<!-- <select id="id_category_group" class="form-control" name="category_group">
+
+								   {% for category  in category_list  %}
+								   <option value="category.id">{{category.name}}</option>
+								   {% endfor %}
+									    
+							       
+							    </select> -->
+					    	</div>
+					  	</div>
+					  	<div class="form-row">
+						    <div class="col mt-3">
+							    <label >Descripción del plato</label>
+								{{form.description}}
+								<!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea> -->
+						    </div>
+					  	</div>
+					</div>
+					<div class="row w-100 mr-auto ml-auto grey-box-precio-wrapper">
+						<div class="col-6 grey-box-precio mr-auto ml-auto">
+							<div class="form-group row">
+							    <label for="inputEmail3" class="col-sm-7 col-form-label">Precio</label>
+							    <div class="col-sm-5">
+									{{form.price}}
+
+								    </div>
+								  </div>
+								  <div class="form-group row">
+								    <label for="inputPassword3" class="col-sm-7 col-form-label">Disponibilidad</label>
+								    <div class="col-sm-5">
+								      <select id="inputState" class="form-control">
+								        <option selected>Disponible</option>
+								        <option>No disponible</option>
+								    </select>
+								</div>
+							</div>
+						</div>
+					</div>	
+					<div class="col-12 grey-box-button-box">
+				  		<button class="btn btn-outline-dark">Cancelar</button>
+				  		<button class="btn btn-dark">Guardar</button>
+				  	</div>
+				</div>	
+			</form>
+		</div>
+	</div>
+</div>
+
+	{% endblock bodycontent %}

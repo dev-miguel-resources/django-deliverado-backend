@@ -1,0 +1,30 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Crear un Usuario
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid" id="dashboard-container">
+	<div class="row">
+		<div class="col-6  mx-auto contraseña-box">
+			<h5>Recuperar contraseña</h5>
+			<p class="w-75 mx-auto pl-5 pr-5 mb-5">Ingrese el correo electrónico que usó para registrarse y restaure su contraseña</p>
+			<form>
+			  <div class="form-row">
+			    <div class="col">
+				    <input type="text" class="form-control" placeholder="Correo electrónico">
+			    </div>
+			  </div>
+			  	<div class="col-12 mt-5">
+			  		<button class="btn btn-light d-block w-100">Recibir correo</button>
+			  		<p class="success-message text-center mt-3">Hemos enviado un correo a tu cuenta.</p>
+			  	</div>
+			  </div>
+			</form>
+		</div>
+	</div>
+</div>
+
+	{% endblock bodycontent %}

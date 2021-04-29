@@ -1,0 +1,104 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Crear un Usuario
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid" id="dashboard-container">
+	<div class="row title-box-with-search">
+		<div class="col-12 p-0">
+			<h3 class="white-text">Pedidos entregados</h3>
+		</div>
+		<div class="col-3 p-0">
+			<div class="card mb-3 cancelados-card">
+			  <div class="row no-gutters">
+			    <div class="col-md-4 dollar-box">
+			      <i class="fas fa-dollar-sign"></i>
+			    </div>
+			    <div class="col-md-8">
+			      <div class="card-body">
+			        <h5 class="card-title"> -$11.234</h5>
+			        <p class="card-text">Pedidos cancelados</p>
+			      </div>
+			    </div>
+			</div>
+		</div>
+		</div>
+		<div class="col-9 p-0 search-box" >
+			<form class="form-inline my-2 my-lg-0 justify-content-end">
+			  <div class="input-group-prepend">
+		        <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+		      </div>
+		      <input class="form-control " type="search" placeholder="Buscar pedido..." aria-label="Search">
+		      <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+		    </form>
+		</div>
+	</div>
+	<div class="row inner-box-table">
+		<div class="col-12 p-0">
+			<table class="table table-hover pedido-table">
+			  <thead>
+			    <tr>
+			      <th scope="col">ID</th>
+			      <th scope="col">Dirección de entrega</th>
+			      <th scope="col">Cliente</th>
+			      <th scope="col">Repartidor</th>
+			      <th scope="col">Total pedido</th>
+			      <th scope="col"></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <th >#589749</th>
+			      <td>8080 Southwest street</td>
+			      <td>Susana Vargas</td>
+			      <td>Juan Sevilla</td>
+			      <td>$24.000</td>
+			      <td><a href="">Ver detalles <i class="fas fa-angle-right"></i></a></td>
+			    </tr>
+			    <tr>
+			      <th >#589749</th>
+			      <td>8080 Southwest street</td>
+			      <td>Susana Vargas</td>
+			      <td>Juan Sevilla</td>
+			      <td>$24.000</td>
+			      <td><a href="">Ver detalles <i class="fas fa-angle-right"></i></a></td>
+			    </tr>
+			    <tr>
+			      <th>#589749</th>
+			      <td>8080 Southwest street</td>
+			      <td>Susana Vargas</td>
+			      <td>Juan Sevilla</td>
+			      <td>$24.000</td>
+			      <td><a href="">Ver detalles <i class="fas fa-angle-right"></i></a></td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 p-0">
+			<nav aria-label="Page navigation example ">
+			  <ul class="pagination justify-content-end pagination-table">
+			    <li class="page-item">
+			      <a class="page-link" href="#" aria-label="Previous">
+			        <span aria-hidden="true"><i class="fas fa-angle-left"></i></span>
+			      </a>
+			    </li>
+			    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+			    <li class="page-item"><a class="page-link" href="#">2</a></li>
+			    <li class="page-item"><a class="page-link" href="#">3</a></li>
+			    <li class="page-item">
+			      <a class="page-link" href="#" aria-label="Next">
+			        <span aria-hidden="true"><i class="fas fa-angle-right"></i></span>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>
+		</div>
+	</div>
+</div>
+
+	{% endblock bodycontent %}

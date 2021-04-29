@@ -1,0 +1,80 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Crear un Usuario
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid" id="dashboard-container">
+	<div class="row">
+		<div class="col-8 mr-auto ml-auto p-0" id="editar-box">
+			<div class="col-12 centered-title">
+				<h4>Actualizar usuario</h4>
+			</div>
+			{% if error %}
+			<div class="alert alert-danger">
+				{{error}}
+			</div>
+			{% endif %}
+			<form method="POST" enctype="multipart/form-data">{% csrf_token %}
+				<div class="row grey-box">		
+					<div class="col-12 grey-box-form usuario-add-box">
+					  	<div class="form-row">
+					  		<h5>Datos personales</h5>
+						    <div class="col">
+							    <label >Nombre </label>
+							    {{form.first_name}}
+						    </div>
+						    <div class="col">
+							    <label >Apellido </label>
+							    {{form.last_name}}
+						    </div>
+					  	</div>
+					  	<div class="form-row">
+					  		<div class="col">
+						    	<label>Correo</label>
+						      	{{form.email}}
+					    	</div>
+					    	 
+					  	</div>
+					  
+					  	<div class="form-row">
+					  		<h5>Permisos</h5>
+						    <div class="col">
+							    <div class="custom-control custom-switch">
+									<label class="" >Manejar pedidos</label>
+									{{form.manage_order}}
+								</div>
+						    </div>
+						    <div class="col">
+							    <div class="custom-control custom-switch">
+									<label class="" >Manejar Promociones</label>
+									{{form.manage_promo}}
+								</div>
+						    </div>
+						    <div class="col">
+							    <div class="custom-control custom-switch">
+									<label class="" >Manejar Menú</label>
+									{{form.manage_menu}}
+								</div>
+						    </div>
+						    <div class="col">
+							    <div class="custom-control custom-switch">
+									<label class="" >Manejar Perfil Negocio</label>
+									{{form.manage_profile}}
+								</div>
+						    </div>
+					  	</div>
+					</div>	
+					<div class="col-12 grey-box-button-box usuario-add-btn-box">
+				  		<button class="btn btn-outline-dark">Cancelar</button>
+				  		<button class="btn btn-dark">Guardar</button>
+				  	</div>
+				</div>	
+			</form>
+		</div>
+	</div>
+</div>
+
+	{% endblock bodycontent %}

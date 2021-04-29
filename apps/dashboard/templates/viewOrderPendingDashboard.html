@@ -1,0 +1,104 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Pedido Pendiente
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid" id="dashboard-container">
+	<div class="row" id="inner-box">
+		<div class="col-12" id="pedidos-box">
+			<h3>Pedido Id: {{order.pk}}</h3>
+			<p>{{order_product.total_product}} artículo/s</p>
+		</div>
+		<div class="col-8 p-0" id="pedidos-details">
+			
+			
+			<div class="pedidos-list">
+				{% for product in order_product_data %}
+				<ul class="list-unstyled">
+					<h5>{{product.product.category_group.name}} </h5>
+				  <li class="media details-media-obj">
+				  	<span class="number badge number-badge">{{product.quantity}}</span>
+				    <img src="{{product.product.img.url}}" width="98" height="98" class="mr-3" alt="...">
+				    <div class="media-body">
+				      <h5 class="mt-0 mb-1">{{product.product.name}}</h5>
+				      <p>Queso mantecoso, camarones</p>
+				      <span class="price">${{product.sub_total}}</span>
+				    </div>
+				  </li>
+				</ul>
+				{% endfor %}	
+			</div>
+			
+		<div class="total-box">
+			<h3 class="left-text">Total</h3>
+			<h3 class="right-text">${{order.total}}</h3>
+		</div>
+		</div>
+		<div class="col-4" id="pedido-right-panel">
+			<h5>Cliente</h5>		  	
+		    <div class="card-body cliente-card">
+			  <ul class="list-group list-group-flush stats-list">
+			    <li class="list-group-item ">
+			    	<h5 class="card-title">{{order.user_customer.first_name}} {{order.user_customer.last_name}} <span class="badge text-badge"></span></h5>
+			    	<a href="https://www.google.com/maps/search/{{order.address_delivery}}"><p><i class="fas fa-map-marker-alt"></i>{{order.address_delivery}} </p></a>
+			    	<p><i class="fas fa-phone"></i> Tel: +{{order.user_customer.phone}}</p>
+			    	<p><i class="fas fa-envelope"></i> Correo: {{order.user_customer.email}}</p>
+			    </li>
+			  </ul>
+			</div>
+			<div class="input-group mb-3 right-panel-drop">
+				<h5>Repartidor</h5>
+			    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					
+					{% if order.user_delivery %}
+						{{order.user_delivery.first_name}} {{order.user_delivery.last_name}}
+					{% else %}
+						Seleccionar repartidor
+					{% endif %}
+						
+				</button>
+			    <div class="dropdown-menu">
+			      <a class="dropdown-item" href="{% url 'updateDeliveryOrderDashboard' order.pk 0 %}" >Repartidor al azar</a>
+			     
+				 {% for user in delivery_available %}
+				 <a href="{% url 'updateDeliveryOrderDashboard' order.pk user.pk %}" id="user_delivery" class="dropdown-item delivery">{{user.first_name|title}} {{user.last_name|title}}</a>
+				 {% endfor %}
+
+			    </div>
+			</div>
+			<div class="input-group mb-3 right-panel-drop">
+				<h5>Listo en:</h5>
+			    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					{% if order.cooking_time %}
+						{{order.cooking_time}} Minutos
+					{% else %}
+						Seleccionar repartidor
+					{% endif %}
+				</button>
+			    <div class="dropdown-menu">
+			      <a class="dropdown-item" href="{% url 'updateCookingTimeOrderDashboard' order.pk 10 %}">10 minutos</a>
+			      <a class="dropdown-item" href="{% url 'updateCookingTimeOrderDashboard' order.pk 20 %}">20 minutos</a>
+			      <a class="dropdown-item" href="{% url 'updateCookingTimeOrderDashboard' order.pk 30 %}">30 minutos</a>
+			      <a class="dropdown-item" href="{% url 'updateCookingTimeOrderDashboard' order.pk 40 %}">40 minutos</a>
+				  <a class="dropdown-item" href="{% url 'updateCookingTimeOrderDashboard' order.pk 50 %}">50 minutos</a>
+				  <a class="dropdown-item" href="{% url 'updateCookingTimeOrderDashboard' order.pk 60 %}">60 minutos</a>
+			    </div>
+			</div>
+			<div class="right-panel-btns">
+				<a href="{% url 'acceptOrderDashboard' order.pk %}">
+				<button type="button" class="btn btn-dark">Aceptar pedido</button>
+				</a>
+				<a href="{% url 'cancelOrderDashboard' order.pk %}">
+					<button type="button" class="btn btn-outline-dark">Rechazar pedido</button>
+				</a>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+ {% endblock bodycontent %}
+

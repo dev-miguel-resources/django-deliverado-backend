@@ -1,0 +1,69 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Crear un Usuario
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid" id="dashboard-container">
+	<div class="row">
+		<div class="col-12 p-0">
+			<h3 class="white-text text-center">Promociones</h3>
+			<h6 class="white-text text-center mb-4">Agregar una nueva promoción de descuento 2x1, 3x2</h6>
+			<div class="progress custom-progress">
+			  <div class="progress-bar" role="progressbar" aria-valuenow="50" style="width: 50%" aria-valuemin="0" aria-valuemax="100"></div>
+			</div>
+		</div>
+		<div class="col-12" id="tipo-promo-wrapper">
+			<div class="col-10 mr-auto ml-auto p-0" id="editar-box">
+				<form class="dark-grey-box">
+					<div class="row ">		
+						<div class="col-4 editar-img-porcentaje" >
+							<i class="fas fa-upload"></i>
+							<a href="" class="text-center">Cargar imagen</a>
+						</div>
+						<div class="col-8 dark-grey-box-form">
+							<div class="form-row">
+								<div class="col">
+									<h5 class="white-text">Agregar título</h5>
+								    <label >Nombre promoción</label>
+								    <input type="text" class="form-control" placeholder="Nombre">
+							    </div>
+							</div>
+						  	<div class="form-row">
+						  		<h5 class="white-text">Tiempo de duración:</h5>
+							    <div class="col">
+								    <label >Inicio</label>
+								    <input type="text" class="form-control" placeholder="Junio 08, 2020">
+							    </div>
+							    <div class="col">
+							    	<label>Fin</label>
+							      	<input type="text" class="form-control" placeholder="Junio 20, 2020">
+						    	</div>
+						  	</div>
+						  	<div class="from-row">
+								<div class="col-6 p-0">
+							    	<label>Tipo de descuento</label>
+							      	<select id="inputState" class="form-control">
+								        <option selected>2x1</option>
+								        <option>Opción 2</option>
+								        <option>Opción 3</option>
+								        <option>Opción 4</option>
+								    </select>
+						    	</div>
+							</div>
+						</div>
+					</div>	
+				</form>
+			</div>
+		</div>
+		<div class="tipo-promo-btn-box">
+			<button class="btn btn-secondary btn-next">Anterior</button>
+			<button class="btn btn-light btn-next float-right">Siguiente</button>
+		</div>
+		
+	</div>
+</div>
+
+	{% endblock bodycontent %}

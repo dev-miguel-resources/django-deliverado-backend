@@ -1,0 +1,231 @@
+{% extends "baseDashboard.html" %}
+{% load staticfiles %} 
+{% block titlepage %}
+    Panel Dashboard
+{% endblock titlepage %}
+{% block breadcrumpage %}
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'indexDashboard' %}">Dashboard</a></li>    
+{% endblock breadcrumpage %}
+{% block bodycontent %}
+  
+          
+           
+
+
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark"> Home</h1>
+          </div><!-- /.col -->
+          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>150</h3>
+
+                <p>Pedidos Entregados</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-check"></i>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-6 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>53</h3>
+
+                <p>Pedidos Cancelados</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-times"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- PEDIDOS NUEVOS -->
+          <div class="col-lg-4 col-4">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">PEDIDOS NUEVOS</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                 
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <ul class="products-list product-list-in-card pr-2">
+                   
+                   {% for order in list_order_new  %}
+                    <li class="item show-order" data-id="{{order.pk}}" >
+                    <div class="product-info-20">
+                      <a href="javascript:void(0)" class="product-title">ID: {{order.code}}
+                        <span class="badge badge-warning float-right">NUEVO</span></a>
+                      <span class="product-description">
+                       <i class="fa fa-map-marker"></i> {{order.address_delivery}}
+                      </span>
+                    </div>
+                  </li>
+                  <!-- /.item -->
+                  {% endfor %}
+                  
+                </ul>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer text-center">
+                <a href="javascript:void(0)" class="uppercase">Ver todos</a>
+              </div>
+              <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+          </div>
+
+          <!-- PEDIDOS EN PROCESO -->
+          <div class="col-lg-4 col-4">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">PEDIDOS EN PROCESO</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                 
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <ul class="products-list product-list-in-card pr-2">
+                  
+                     
+                    {% for order in list_order_proccessing  %}
+                    <li class="item show-order" data-id="{{order.pk}}" >
+                    <div class="product-info-20">
+                      <a href="javascript:void(0)" class="product-title">ID: {{order.code}}
+                        <span class="badge badge-warning float-right">NUEVO</span></a>
+                      <span class="product-description">
+                       <i class="fa fa-map-marker"></i> {{order.address_delivery}}
+                      </span>
+                    </div>
+                  </li>
+                  <!-- /.item -->
+                  {% endfor %}
+                  
+                </ul>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer text-center">
+                <a href="javascript:void(0)" class="uppercase">Ver todos</a>
+              </div>
+              <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+          </div>
+
+          <!-- PEDIDOS ENVIADOS -->
+          <div class="col-lg-4 col-4">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">PEDIDOS ENVIADOS</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                 
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <ul class="products-list product-list-in-card pr-2">
+                  
+                     
+                    {% for order in list_order_in_delivery  %}
+                    <li class="item show-order" data-id="{{order.pk}}" >
+                    <div class="product-info-20">
+                      <a href="javascript:void(0)" class="product-title">ID: {{order.code}}
+                        <span class="badge badge-warning float-right">NUEVO</span></a>
+                      <span class="product-description">
+                       <i class="fa fa-map-marker"></i> {{order.address_delivery}}
+                      </span>
+                    </div>
+                  </li>
+                  <!-- /.item -->
+                  {% endfor %}
+                  
+                </ul>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer text-center">
+                <a href="javascript:void(0)" class="uppercase">Ver todos</a>
+              </div>
+              <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+          </div>
+
+          
+           
+        </div>
+        <!-- /.row -->
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+  
+
+  <div class="modal fade" id="modal-xl">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+         
+          <h4 class="modal-title">ORDEN ID: <span id="id_code">11</span> </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+              <div class="col-lg-8">
+                <h4>Detalle del Pedido</h4>  
+              </div>
+              <div class="col-lg-4">
+                 <h4>Fecha y Hora de Entrega</h4> 
+              </div>
+          </div>
+        </div>
+         
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  {% endblock bodycontent %}
+

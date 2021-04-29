@@ -1,0 +1,94 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+ Crear un Usuario
+{% endblock titlepage %}
+	{% block bodycontent %}
+
+
+
+<div class="container-fluid" id="dashboard-container">
+	<div class="row">
+		<div class="col-12 p-0">
+			<h3 class="white-text pb-5">Perfil</h3>
+		</div>
+		<div class="col-3 profile-name-box">
+			<div align="center">
+				{% if shop.status == 0 %}
+				<a href="{% url 'openShop' %}"><button class="btn btn-success"  >Abrir Restaurante</button ></a>
+				{% elif shop.status == 1 %}
+				<a href="{% url 'closeShop' %}"><button class="btn btn-danger"  >Cerrar Restaurante</button ></a>	
+				{% endif %}
+			</div>
+					
+			    
+				
+			
+			<div class="profile-picture">
+				
+				{% if shop.img_list %}
+				<img src="{{shop.img_list.url}}" class="img-circle">
+					
+				{% endif %}
+				<!-- <a href=""><i class="fas fa-pen"></i></a> -->
+			</div>
+			<h5 class="text-center">{{shop.name|upper}}</h5>
+			<div class="stars">
+	    		<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+	    	</div>	
+		</div>
+		<div class="col-9 profile-info-box">
+			<h5 class="profile-info-title">Información del negocio</h5>
+			<form method="POST">{% csrf_token %}
+			  <div class="form-row">
+			    <div class="col">
+				    <label >Correo electrónico</label>
+				    {{form.email}}
+			    </div>
+			    <div class="col">
+			    	<label>Teléfono</label>
+					{{form.phone}}
+			    </div>
+			  </div>
+			  <div class="form-row">
+			    <div class="col">
+				    <label >Dirección del negocio</label>
+				    {{form.address}}
+			    </div>
+			    <div class="col">
+			    	<label>Categoría del restaurant</label>
+					{{form.type_business}}
+			    </div>
+			  </div>
+			  
+			  <div class="row pl-3 pr-3">
+			  	<h5 class="d-block w-100 mt-3">Horario de atención</h5>
+			  	<div class="col horario-box">
+			  		<label>Lunes a viernes</label>
+
+					{{form.hours_week_start}}  de
+					{{form.hours_week_end}}  
+			  	</div>
+			  	<div class="col horario-box">
+			  		<label>Sabado</label>
+			  		
+					  {{form.hours_sat_start}} de  
+					{{form.hours_sat_end}}  
+			  	</div>
+			  	<div class="col horario-box">
+			  		<label>Domingo</label>
+			  		
+					  {{form.hours_sun_start}}  de
+					{{form.hours_sun_end}}  
+			  	</div>
+				  <div class="col-12 alert alert-info">Usar numeros entre 1 y 24 para representar las horas del día</div>  
+			  	<div class="col-12 profile-info-btn" align="right">
+			  		
+			  		<button class="btn btn-dark"  >Guardar</button>
+			  	</div>
+			  </div>
+			</form>
+		</div>
+	</div>
+</div>
+
+	{% endblock bodycontent %}
